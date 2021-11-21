@@ -141,7 +141,7 @@ function App() {
         <h3>Tied if&hellip;</h3>
         <ul>
         {abuResults.drawOutcomes.map((out) => <li key={outcomeToString(out[0]) + outcomeToString(out[1])}>
-          Hamilton finishes <em>{outcomeToString(out[0])}</em> and Verstappen finishes <em>{outcomeToString(out[1])}</em> or below
+          Hamilton finishes <em>{outcomeToString(out[0])}</em> and Verstappen finishes <em>{outcomeToString(out[1])}</em>
           &nbsp;({hamInitial + outcomePoints(saResultHam) + outcomePoints(out[0])} / {verInitial + outcomePoints(saResultVer) + outcomePoints(out[1])} points)
         </li>)}
         </ul>
