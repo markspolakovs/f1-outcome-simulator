@@ -36,22 +36,6 @@ const POS_POINTS: {[k in Position]: number} = {
 };
 const FASTEST_LAP_POINTS = 1;
 
-function arraysEqual<T extends any[]>(a: T, b: T): boolean {
-  if (a === b) return true;
-  if (a == null || b == null) return false;
-  if (a.length !== b.length) return false;
-
-  // If you don't care about the order of the elements inside
-  // the array, you should sort both arrays here.
-  // Please note that calling sort on an array will modify that array.
-  // you might want to clone your array first.
-
-  for (var i = 0; i < a.length; ++i) {
-    if (a[i] !== b[i]) return false;
-  }
-  return true;
-}
-
 function outcomePoints(out: Outcome): number {
   return POS_POINTS[out[0]] + (out[1] ? FASTEST_LAP_POINTS : 0);
 }
@@ -75,7 +59,7 @@ function calculatePossibleOutcomes(d1Points: number, d2Points: number) {
   const d2WinningResults = new Set<number>();
   for (const d1Outcome of ALL_OUTCOMES) {
     for (const d2Outcome of ALL_OUTCOMES) {
-      if (!arraysEqual(d1Outcome, d2Outcome) || (d1Outcome[0] === 11 && d2Outcome[0] === 11)) {
+      if ((d1Outcome[0] !== d2Outcome[0]) || (d1Outcome[0] === 11 && d2Outcome[0] === 11)) {
         const d1FinalPoints = d1Points + outcomePoints(d1Outcome);
         const d2FinalPoints = d2Points + outcomePoints(d2Outcome);
         if (d1FinalPoints > d2FinalPoints && !d1WinningResults.has(d1Outcome[0])) {
