@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 type Position = 
@@ -59,7 +58,7 @@ function outcomePoints(out: Outcome): number {
 
 function outcomeToString(out: Outcome): string {
   let value = "P" + out[0].toString(10);
-  if (out[0] == 11) {
+  if (out[0] === 11) {
     value = "P11 or lower";
   }
   if (out[1]) {
