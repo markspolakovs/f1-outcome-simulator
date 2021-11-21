@@ -85,8 +85,8 @@ const hamInitial = 343.5;
 const verInitial = 351.5;
 
 function App() {
-  const [saResultHam, setSaResultHam] = useState<Outcome>([1, true]);
-  const [saResultVer, setSaResultVer] = useState<Outcome>([2, false]);
+  const [saResultHam, setSaResultHam] = useState<Outcome>([2, true]);
+  const [saResultVer, setSaResultVer] = useState<Outcome>([1, false]);
   const abuResults = calculatePossibleOutcomes(hamInitial + outcomePoints(saResultHam), verInitial + outcomePoints(saResultVer));
   return (
     <div className="App">
